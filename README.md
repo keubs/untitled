@@ -1,4 +1,4 @@
-### Backend setup
+## Backend setup
 * `pip install virtualenv`
 * `mkdir ~/.venv/` (if necessary)
 * `virtualenv ~/.venv/untitled`
@@ -7,5 +7,11 @@
 * `cd back`
 * `python manage.py runserver`
 
-### Frontend setup
+### If you want a fresh db
+* delete db.sqlite3
+* `python manage.py migrate`
+* `python manage.py makemigrations`
+* `python manage.py syncdb`
+
+## Frontend setup
 `gulp dev`
