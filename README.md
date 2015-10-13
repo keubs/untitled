@@ -13,5 +13,10 @@
 * `python manage.py makemigrations`
 * `python manage.py syncdb`
 
+### To view the db
+* cd back
+* `sqlite3 db.sqlite3`
+* to display tables: `.tables`
+* to display headers: `.headers on`
 ## Frontend setup
 `gulp dev`
