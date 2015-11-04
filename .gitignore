@@ -1,5 +1,6 @@
 __pycache__
 *.pyc
+*.swp
 db.sqlite3
 node_modules
 npm-debug.log
