@@ -14,6 +14,23 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import datetime
 
+from django.core.exceptions import ImproperlyConfigured
+
+
+def get_env_var(key):
+    """
+    """
+
+    try:
+        return os.environ[key]
+    except KeyError:
+        try:
+            from conf import CONF
+            return CONF[key]
+        except (KeyError, Exception):
+            raise ImproperlyConfigured(
+                "Set the {0} environment variable.".format(key))
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -21,7 +38,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7v$kmjkvl6*)zc)i$oe)0=b9(f#@%=yq#nt)7*ks^x#s$qj@^='
+SECRET_KEY = get_env_var("KEUBS_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
