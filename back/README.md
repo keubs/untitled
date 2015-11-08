@@ -9,3 +9,14 @@ $ cd <projects>
 $ git clone git@github.com:keubs/untitled.git && cd untitled
 $ pip install -r back/requirements.txt
 ```
+
+Either set a 'KEUBS_SECRET_KEY' environment variable:
+```
+export KEUBS_SECRET_KEY="<secret_key>"
+```
+...or create a conf.py module at the root of the 'back' project:
+```
+CONF = {
+    "KEUBS_SECRET_KEY": "<secret_key>"
+}
+```
