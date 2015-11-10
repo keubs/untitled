@@ -79,7 +79,7 @@ test() {
     cd ${BACK} && ${PM} test
 }
 
-source ${HOME}/.venv/keubs/bin/activate
+source ${HOME}/.venvs/p3/untitled/bin/activate
 ${1}
 
 exit 0
