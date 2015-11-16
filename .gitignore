@@ -6,4 +6,4 @@ node_modules
 npm-debug.log
 back/action_photos
 back/topic_photos
-front/build
+front/build/*
