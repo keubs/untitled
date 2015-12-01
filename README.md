@@ -5,7 +5,7 @@
 * `source ~/.venv/bin/activate`
 * `pip install -r requirements.txt`
 * `cd back`
-* `python manage.py runserver`
+* `python manage.py runserver 8100`
 
 ### If you want a fresh db
 * delete db.sqlite3
@@ -20,3 +20,6 @@
 * to display headers: `.headers on`
 ## Frontend setup
 `gulp dev`
+
+### Misc.
+* You may want to add a hosts entry to point `squ.ad` to `127.0.0.1`. Otherwise, change the /front/js/constants.js `ApiUrl` field to your preferred url
