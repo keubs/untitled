@@ -6,3 +6,4 @@ node_modules
 npm-debug.log
 back/static
 front/build/*
+front/app/js/templates.js
