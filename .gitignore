@@ -1,0 +1,11 @@
+__pycache__
+*.pyc
+*.swp
+db.sqlite3
+node_modules
+npm-debug.log
+back/static
+front/build/*
+front/coverage/*
+front/app/js/templates.js
+.idea

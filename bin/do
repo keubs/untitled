@@ -1,0 +1,85 @@
+#!/bin/bash
+
+BACK="$(pwd)/back"
+FRONT="$(pwd)/front"
+PM="python manage.py"
+
+build() {
+    echo
+    echo "########### BUILD ###########"
+
+    if build_back; then
+        if build_front; then
+            echo
+        fi
+    fi
+}
+
+build_back() {
+    echo
+    echo "########### BUILD BACK ###########"
+
+    if migrate; then
+        if test; then
+            if create_super_user; then
+                echo
+            fi
+        fi
+    fi
+}
+
+build_front() {
+    echo
+    echo "########### BUILD FRONT ###########"
+
+    if npm_install; then
+        echo
+    fi
+}
+
+create_super_user() {
+    echo
+    echo "########### CREATE SUPER USER ###########"
+
+    cd ${BACK} && ${PM} createsuperuser
+}
+
+migrate() {
+    echo
+    echo "########### MIGRATE ###########"
+
+    cd ${BACK} && ${PM} migrate
+}
+
+npm_install() {
+    echo
+    echo "########### NPM INSTALL ###########"
+
+    cd ${FRONT} && npm install
+}
+
+run_client() {
+    echo
+    echo "########### RUN CLIENT ###########"
+
+    cd ${FRONT} && gulp dev
+}
+
+run_server() {
+    echo
+    echo "########### RUN SERVER ###########"
+
+    cd ${BACK} && ${PM} runserver
+}
+
+test() {
+    echo
+    echo "########### TEST ###########"
+
+    cd ${BACK} && ${PM} test
+}
+
+source ${HOME}/.venvs/p3/untitled/bin/activate
+${1}
+
+exit 0
